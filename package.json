@@ -1,0 +1,27 @@
+{
+  "name": "react-multi-context",
+  "version": "1.0.0",
+  "description": "Manage multiple contexts with a single React component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlesStover/react-multi-context.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "context"
+  ],
+  "author": "Charles Stover",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CharlesStover/react-multi-context/issues"
+  },
+  "homepage": "https://github.com/CharlesStover/react-multi-context#readme",
+  "dependencies": {
+    "react": "^16.4.1"
+  }
+}

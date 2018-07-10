@@ -1,6 +1,6 @@
 {
   "name": "react-multi-context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage multiple contexts with a single React component.",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/CharlesStover/react-multi-context#readme",
   "dependencies": {
-    "react": "^16.4.1"
+    "react": "^16.0.0"
   }
 }

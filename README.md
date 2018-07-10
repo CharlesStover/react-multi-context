@@ -57,7 +57,7 @@ class Child extends React.Component {
 ```
 
 ## Example (Shorter)
-``JS
+```JS
 // parent - writes A and B
 const Parent = () =>
   <MultiContextInstance set={{ a: 1, b: 2, c: 3 }}>
@@ -85,7 +85,7 @@ const Child3 = () =>
   <MultiContextInstance get={[ 'b', 'a' ]}>
     {(b, a) => `The value of A+B is ${a + b}!`}
   </MultiContextInstance>;
-``
+```
 
 ## Default Values
 You may pass an object of default values for the contexts via the `default` prop.

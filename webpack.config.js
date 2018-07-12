@@ -3,14 +3,16 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js',
   externals: {
-    'react': 'commonjs react'
+    'react': {
+      amd: 'react',
+      commonjs: 'react',
+      commonjs2: 'react',
+      root: 'React'
+    }
   },
+  mode: 'production',
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-      },
       {
         exclude: /^\/(?:build|node_modules)/,
         include: path.resolve(__dirname, 'src'),
@@ -26,7 +28,13 @@ module.exports = {
   },
   output: {
     filename: 'index.js',
-    libraryTarget: 'commonjs2',
-    path: path.resolve(__dirname, 'build')
+    libraryTarget: 'umd',
+    path: path.resolve(__dirname, 'build'),
+    umdNamedDefine: true
+  },
+  resolve: {
+    alias: {
+      'react': path.resolve(__dirname, './node_modules/react')
+    }
   }
 };

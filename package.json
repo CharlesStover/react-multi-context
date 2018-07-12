@@ -1,9 +1,10 @@
 {
   "name": "react-multi-context",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Manage multiple contexts with a single React component.",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,15 @@
   },
   "homepage": "https://github.com/CharlesStover/react-multi-context#readme",
   "dependencies": {
-    "react": "^16.0.0"
+    "react": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
   }
 }

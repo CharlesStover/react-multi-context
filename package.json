@@ -1,6 +1,6 @@
 {
   "name": "react-multi-context",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Manage multiple contexts with a single React component.",
   "main": "build/index.js",
   "scripts": {

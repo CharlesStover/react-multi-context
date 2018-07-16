@@ -1,11 +1,11 @@
+# react-multi-context
+Manage multiple contexts with a single React component.
+
 ![GitHub version](https://img.shields.io/github/package-json/v/CharlesStover/react-multi-context.svg)
 ![npm version](https://img.shields.io/npm/v/react-multi-context.svg)
 ![npm downloads](https://img.shields.io/npm/dt/react-multi-context.svg)
 ![min](https://img.shields.io/bundlephobia/min/react-multi-context.svg)
 ![minzip](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)
-
-# react-multi-context
-Manage multiple contexts with a single React component.
 
 ## Install
 `npm install react-multi-context --save` or `yarn add react-multi-context`

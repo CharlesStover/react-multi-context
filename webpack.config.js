@@ -29,7 +29,7 @@ module.exports = {
     filename: '[name].js',
     library: 'react-multi-context',
     libraryTarget: 'umd',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, '.'),
     umdNamedDefine: true
   },
   resolve: {

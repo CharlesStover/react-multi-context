@@ -8,7 +8,8 @@ Manage multiple contexts with a single React component.
 ![minzip](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)
 
 ## Install
-`npm install react-multi-context --save` or `yarn add react-multi-context`
+* `npm install react-multi-context --save` or
+* `yarn add react-multi-context`
 
 ## Use
 Create the context by importing and executing `createMultiContext` wherever you want to create context.
@@ -25,9 +26,9 @@ Using this prop will execute the children function by passing the corresponding 
 // Parent.js
 import createMultiContext from 'react-multi-context';
 
-export ParentContext = createMultiContext(); // context to provide to children
+export const ParentContext = createMultiContext(); // context to provide to children
 
-class Parent extends React.Component {
+export default class Parent extends React.Component {
   render() {
     return (
       <ParentContext
@@ -49,7 +50,7 @@ class Parent extends React.Component {
 // Child.js
 import { ParentContext } from './Parent'; // context provided from parent
 
-class Child extends React.Component {
+export default class Child extends React.Component {
   render() {
     return (
       <ParentContext get={[ 'project', 'user' ]}>
@@ -69,6 +70,7 @@ const Parent = () =>
   <MultiContextInstance set={{ a: 1, b: 2, c: 3 }}>
     <Child1 />
     <Child2 />
+    <Child3 />
   </MultiContextInstance>;
 
 // child1 - reads A
@@ -95,3 +97,21 @@ const Child3 = () =>
 
 ## Default Values
 You may pass an object of default values for the contexts via the `default` prop.
+
+## withContext
+``withContext(MultiContextInstance, multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.
+
+```JS
+import React from 'react';
+import withContext from 'react-multi-context/withContext';
+import { SomeMultiContext } from './some-component';
+
+class MyComponent extends React.PureComponent {
+  render() {
+    return <div children={'My name is ' + this.props.name + '!'} />;
+  }
+}
+
+// Binds the MultiContext's `name` property to MyComponent's `name` prop.
+export default withContext(SomeMultiContext, [ 'name' ])(MyComponent);
+```

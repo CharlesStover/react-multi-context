@@ -1,5 +1,4 @@
 import React from 'react';
-export { default as withContext } from './with-context';
 
 const providerSort = (a, b) =>
   a[0] < b[0] ?

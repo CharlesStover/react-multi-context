@@ -5,8 +5,8 @@ branches:
 cache: yarn
 install: yarn
 script:
-  - yarn test
   - yarn build
+  - yarn test
 deploy:
   api_key:
     secure: LfyVJFsB0I900WFHiWXRpNmE+NEJQkeibMKXDCxJa6fEzytVK8HhgsvUhbMIcaoddGACjXEr4axxNZ+8xnExxFXLhUzXUViaMo5WI0bjFoj1x3YAWDwLUCRK/yFCKfvGM55ZAwGzCq6NR+bEpZQIUM4ZHCi4AndiqZZwua1lRN/whYQO0ldQPY3j4v20Q3R/tCmtXYyaPR2zt6YeA2eKRSH5E1UvBt0MKlx/zvi37VhxYIO1OOrgQwjJGvWHU5m4P66eFhaaJxDOoMn56R+4prf+td1OO2RKuHWYj8JDMbxZFDsppVkT5OGr2Iy+6Et4/J/RfNW6gb1UC6M5XnQvI8buv7fHNtg2faz++Wy4FMudYBlaqvHXykQ1Lwhx3PXDIyZ9SR0RXf5JR7Vg1smpsPv1bzdh90WUGlFQvf0uROYfdRer/iNoJSMBDzyqBl5YTU8nnsg4hZASpUhogVR9gZMJw4eRDoIZUblt15QSDDB2+s0ElNnykxEQqTlV4N2tN2qHVn8bv01ERYqRPpEK/qIzIZKvi837ti0F8MXFHXbORreRpc4VI7mS9Np0+T54RcpL74d9addAdjtEX5+p68bS4BEhxpoR9s7xK5MMY2c0TNXzs+xXylsBzu/eGX83/xlfe+HC8aGcz60E32eJYQAiIBjvdfaRRmStV/IWO48=

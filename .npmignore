@@ -6,3 +6,4 @@
 .npmignore
 package-lock.json
 webpack.config.js
+yarn.lock

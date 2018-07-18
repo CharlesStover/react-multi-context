@@ -1,12 +1,12 @@
 {
   "name": "react-multi-context",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Manage multiple contexts with a single React component.",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",

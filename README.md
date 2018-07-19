@@ -1,11 +1,11 @@
 # react-multi-context
 Manage multiple contexts with a single React component.
 
-![GitHub version](https://img.shields.io/github/package-json/v/CharlesStover/react-multi-context.svg)
-![npm version](https://img.shields.io/npm/v/react-multi-context.svg)
-![npm downloads](https://img.shields.io/npm/dt/react-multi-context.svg)
-![min](https://img.shields.io/bundlephobia/min/react-multi-context.svg)
-![minzip](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)
+![package](https://img.shields.io/github/package-json/v/CharlesStover/react-multi-context.svg)
+![build](https://api.travis-ci.com/CharlesStover/react-multi-context.svg)
+![downloads](https://img.shields.io/npm/dt/react-multi-context.svg)
+![minified size](https://img.shields.io/bundlephobia/min/react-multi-context.svg)
+![minzipped size](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)
 
 ## Install
 * `npm install react-multi-context --save` or
@@ -16,6 +16,11 @@ Manage multiple contexts with a single React component.
 * `yarn test`
 
 ## Use
+```JS
+import createMultiContext from 'react-multi-context';
+export const MyMultiContext = createMultiContext();
+```
+
 Create the context by importing and executing `createMultiContext` wherever you want to create context.
 Then, import that multi-context instance as needed.
 
@@ -69,30 +74,30 @@ export default class Child extends React.Component {
 
 ## Example (Shorter)
 ```JS
-// parent - writes A and B
+// Parent - writes A and B
 const Parent = () =>
-  <MultiContextInstance set={{ a: 1, b: 2, c: 3 }}>
+  <MultiContextInstance set={{ a: 1, b: 2 }}>
     <Child1 />
     <Child2 />
     <Child3 />
   </MultiContextInstance>;
 
-// child1 - reads A
+// Child1 - reads A
 // Note: Each value is its own context, which is what makes this MULTI-context.
 const Child1 = () =>
   <MultiContextInstance get={[ 'a' ]}>
     {(a) => `The value of A is ${a}!`}
   </MultiContextInstance>;
 
-// child2 - reads A and B
+// Child2 - reads A and B
 // Note: Reading multiple values will trigger a re-render if any one read value changes.
 const Child2 = () =>
   <MultiContextInstance get={[ 'a', 'b' ]}>
     {(a, b) => `The value of A+B is ${a + b}!`}
   </MultiContextInstance>;
 
-// child3 - reads B and A
-// Note: The order of the get property corresponds to the order of the function parameters.
+// Child3 - reads B and A
+// Note: The order of the get prop corresponds to the order of the function parameters.
 const Child3 = () =>
   <MultiContextInstance get={[ 'b', 'a' ]}>
     {(b, a) => `The value of A+B is ${a + b}!`}

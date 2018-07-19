@@ -14,13 +14,14 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.53",
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.53",
     "@babel/preset-env": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.0.0-beta.54",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.0",
     "babel-loader": "^8.0.0-beta.4",
-    "chai": "^4.1.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "mocha": "^5.2.0",
+    "jest": "^23.4.1",
     "react-dom": "^16.4.1",
-    "sinon": "^6.1.3",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
   },
@@ -42,6 +43,6 @@
   "scripts": {
     "build": "webpack",
     "prepublishOnly": "npm run build",
-    "test": "echo \"no test specified\" && exit 0"
+    "test": "jest tests/.+.spec.js"
   }
 }

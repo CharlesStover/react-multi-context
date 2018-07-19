@@ -1,5 +1,5 @@
-const React = require('react').default;
-const withContext = require('../withContext');
+import React from 'react';
+import withContext from '../withContext';
 
 describe('withContext', () => {
 

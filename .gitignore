@@ -1,4 +1,5 @@
 /.vscode
 /node_modules
-index.js
-withContext.js
+/index.js
+/withContext.js
+/yarn-error.log

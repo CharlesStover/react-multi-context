@@ -11,6 +11,10 @@ Manage multiple contexts with a single React component.
 * `npm install react-multi-context --save` or
 * `yarn add react-multi-context`
 
+## Test
+* `npm run test` or
+* `yarn test`
+
 ## Use
 Create the context by importing and executing `createMultiContext` wherever you want to create context.
 Then, import that multi-context instance as needed.

@@ -108,7 +108,7 @@ const Child3 = () =>
 You may pass an object of default values for the contexts via the `default` prop.
 
 ## withContext
-``withContext(MultiContextInstance, multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.
+`withContext(MultiContextInstance, multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.
 
 ```JS
 import React from 'react';

@@ -1,12 +1,9 @@
 {
   "name": "react-multi-context",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "author": "Charles Stover",
   "bugs": {
     "url": "https://github.com/CharlesStover/react-multi-context/issues"
-  },
-  "dependencies": {
-    "react": "^16.0.0"
   },
   "description": "Manage multiple contexts with a single React component.",
   "devDependencies": {
@@ -21,6 +18,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.4.1",
+    "react": "^16.0.0",
     "react-dom": "^16.4.1",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"

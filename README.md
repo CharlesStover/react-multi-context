@@ -1,11 +1,11 @@
 # react-multi-context
 Manage multiple contexts with a single React component.
 
-![package](https://img.shields.io/github/package-json/v/CharlesStover/react-multi-context.svg)
-![build](https://api.travis-ci.com/CharlesStover/react-multi-context.svg)
-![downloads](https://img.shields.io/npm/dt/react-multi-context.svg)
-![minified size](https://img.shields.io/bundlephobia/min/react-multi-context.svg)
-![minzipped size](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)
+[![package](https://img.shields.io/github/package-json/v/CharlesStover/react-multi-context.svg)](https://travis-ci.com/CharlesStover/react-multi-context/)
+[![build](https://api.travis-ci.com/CharlesStover/react-multi-context.svg)](https://travis-ci.com/CharlesStover/react-multi-context/)
+[![downloads](https://img.shields.io/npm/dt/react-multi-context.svg)](https://www.npmjs.com/package/react-object-prop)
+[![minified size](https://img.shields.io/bundlephobia/min/react-multi-context.svg)](https://www.npmjs.com/package/react-object-prop)
+[![minzipped size](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)](https://www.npmjs.com/package/react-object-prop)
 
 ## Install
 * `npm install react-multi-context --save` or

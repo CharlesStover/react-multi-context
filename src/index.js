@@ -7,17 +7,51 @@ const providerSort = (a, b) =>
 
 const createMultiContext = () => {
   const contexts = Object.create(null);
+
   return class MultiContext extends React.PureComponent {
+
+    static with(...contextKeys) {
+
+      const reduceContextToProps = (props, contextValue, index) => {
+        props[contextKeys[index]] = contextValue;
+        return props;
+      };
+
+      return (Component) =>
+        class WithMultiContext extends React.PureComponent {
+
+          contextConsumer = (...contextValues) => {
+            const props = contextValues.reduce(
+              reduceContextToProps,
+              Object.create(null)
+            );
+            return (
+              <Component
+                {...props}
+                {...this.props}
+              />
+            );
+          }
+
+          render() {
+            return (
+              <MultiContext
+                children={this.contextConsumer}
+                get={contextKeys}
+              />
+            );
+          }
+        };
+    }
 
     createContext(key) {
       if (!Object.prototype.hasOwnProperty.call(contexts, key)) {
-        contexts[key] = React.createContext(
+        contexts[key] =
           typeof this.props.default === 'object' &&
           this.props.default !== null &&
           Object.prototype.hasOwnProperty.call(this.props.default, key) ?
-            this.props.default[key] :
-            null
-        );
+            React.createContext(this.props.default[key]) :
+            React.createContext();
       }
       return contexts[key];
     }
@@ -109,6 +143,20 @@ const createMultiContext = () => {
 
       // If there are providers to set,
       const providers = Object.entries(this.props.set);
+      if (
+        typeof this.props.default === 'object' &&
+        this.props.default !== null
+      ) {
+        const defaults = Object.entries(this.props.default);
+        const defaultsLength = defaults.length;
+        for (let x = 0; x < defaultsLength; x++) {
+
+          // Don't duplicate a provider if it is already set.
+          if (!Object.prototype.hasOwnProperty.call(this.props.set, defaults[x][0])) {
+            providers.push(defaults[x]);
+          }
+        }
+      }
       if (providers.length === 0) {
         return children;
       }

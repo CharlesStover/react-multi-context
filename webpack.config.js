@@ -1,10 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    index: './src/create-multi-context.js',
-    withContext: './src/with-context'
-  },
+  entry: './src/index.js',
   externals: {
     'react': {
       amd: 'react',
@@ -17,7 +14,6 @@ module.exports = {
   module: {
     rules: [
       {
-        exclude: /^\/node_modules\//,
         test: /\.js$/,
         use: {
           loader: 'babel-loader'
@@ -26,7 +22,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     library: 'react-multi-context',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, '.'),

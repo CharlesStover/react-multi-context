@@ -28,14 +28,15 @@ Use the `set` prop to set a context's value.
 Changing the value on a key-value pair in a context will cause all getters for that key to re-render.
 
 Use the `get` prop to get a context's value.
-Using this prop will execute the children function by passing the corresponding values of the context as the parameters.
+Using this prop will execute the `children` render prop by passing the corresponding values of the context as the parameters.
 
 ## Example
 ```JS
 // Parent.js
 import createMultiContext from 'react-multi-context';
 
-export const ParentContext = createMultiContext(); // context to provide to children
+// Context to provide to children.
+export const ParentContext = createMultiContext();
 
 export default class Parent extends React.Component {
   render() {
@@ -55,15 +56,19 @@ export default class Parent extends React.Component {
     );
   }
 }
-
+```
+```JS
 // Child.js
-import { ParentContext } from './Parent'; // context provided from parent
+// Get the context provided from the parent
+import { ParentContext } from './Parent';
 
 export default class Child extends React.Component {
   render() {
     return (
       <ParentContext get={[ 'project', 'user' ]}>
         {(project, user) =>
+
+          /* This is a demo of React Multi-Context v1.0 by Charles! */
           <p>This is a demo of {project.name} v{project.version} by {user}!</p>
         }
       </ParentContext>
@@ -81,21 +86,24 @@ const Parent = () =>
     <Child2 />
     <Child3 />
   </MultiContextInstance>;
-
+```
+```JS
 // Child1 - reads A
 // Note: Each value is its own context, which is what makes this MULTI-context.
 const Child1 = () =>
   <MultiContextInstance get={[ 'a' ]}>
     {(a) => `The value of A is ${a}!`}
   </MultiContextInstance>;
-
+```
+```JS
 // Child2 - reads A and B
 // Note: Reading multiple values will trigger a re-render if any one read value changes.
 const Child2 = () =>
   <MultiContextInstance get={[ 'a', 'b' ]}>
     {(a, b) => `The value of A+B is ${a + b}!`}
   </MultiContextInstance>;
-
+```
+```JS
 // Child3 - reads B and A
 // Note: The order of the get prop corresponds to the order of the function parameters.
 const Child3 = () =>
@@ -107,20 +115,30 @@ const Child3 = () =>
 ## Default Values
 You may pass an object of default values for the contexts via the `default` prop.
 
-## withContext
-`withContext(MultiContextInstance, multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.
+```JS
+<MyMultiContext
+  default={{ a: 0, b: 0 }}
+  set={{ a: 1 }}
+>
+  <MyMultiContext get={[ 'b' ]}>
+    {b => 'I predict that B equals zero: ' + b}
+  </MyMultiContext>
+</MyMultiContext>
+```
+
+## MultiContext.with
+`MultiContextInstance.with(...multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.
 
 ```JS
 import React from 'react';
-import withContext from 'react-multi-context/withContext';
 import { SomeMultiContext } from './some-component';
 
 class MyComponent extends React.PureComponent {
   render() {
-    return <div children={'My name is ' + this.props.name + '!'} />;
+    return <div children={'My name is ' + this.props.name + ', and I am ' + this.props.age + '!'} />;
   }
 }
 
 // Binds the MultiContext's `name` property to MyComponent's `name` prop.
-export default withContext(SomeMultiContext, [ 'name' ])(MyComponent);
+export default SomeMultiContext.with('name', 'age')(MyComponent);
 ```

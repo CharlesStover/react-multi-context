@@ -1,6 +1,6 @@
 {
   "name": "react-multi-context",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "author": "Charles Stover",
   "bugs": {
     "url": "https://github.com/CharlesStover/react-multi-context/issues"
@@ -8,6 +8,7 @@
   "description": "Manage multiple contexts with a single React component.",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.53",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-rc.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.53",
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.53",
     "@babel/preset-env": "^7.0.0-beta.53",

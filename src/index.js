@@ -5,8 +5,11 @@ const providerSort = (a, b) =>
     -1 :
     1;
 
-const createMultiContext = () => {
+const createMultiContext = (defaults = Object.create(null)) => {
   const contexts = Object.create(null);
+  for (const [ key, value ] of Object.entries(defaults)) {
+    contexts[key] = React.createContext(value);
+  }
 
   return class MultiContext extends React.PureComponent {
 
@@ -147,13 +150,13 @@ const createMultiContext = () => {
         typeof this.props.default === 'object' &&
         this.props.default !== null
       ) {
-        const defaults = Object.entries(this.props.default);
-        const defaultsLength = defaults.length;
-        for (let x = 0; x < defaultsLength; x++) {
+        const propDefaults = Object.entries(this.props.default);
+        const propDefaultsLength = propDefaults.length;
+        for (let x = 0; x < propDefaultsLength; x++) {
 
           // Don't duplicate a provider if it is already set.
-          if (!Object.prototype.hasOwnProperty.call(this.props.set, defaults[x][0])) {
-            providers.push(defaults[x]);
+          if (!Object.prototype.hasOwnProperty.call(this.props.set, propDefaults[x][0])) {
+            providers.push(propDefaults[x]);
           }
         }
       }

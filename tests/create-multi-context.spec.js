@@ -1,4 +1,4 @@
-import Enzyme, { render, shallow } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import createMultiContext from '../index';
@@ -9,7 +9,7 @@ describe('createMultiContext', () => {
 
   let MultiContext = null;
   beforeEach(() => {
-    MultiContext = createMultiContext();
+    MultiContext = createMultiContext({ d: true });
   });
 
   it('should render without crashing', () => {
@@ -31,11 +31,6 @@ describe('createMultiContext', () => {
         shallow(<MultiContext set={{ a: 1 }} />);
       }).not.toThrowError();
     });
-
-    it.skip('should require an object', () => {
-      expect(() => {
-      }).toThrowError();
-    });
   });
 
 
@@ -43,9 +38,9 @@ describe('createMultiContext', () => {
   // Get
   describe('get', () => {
 
-    it('should accept a render prop', () => {
+    it('should accept an array and a render prop', () => {
+      shallow(<MultiContext set={{ a: 1 }} />);
       expect(() => {
-        shallow(<MultiContext set={{ a: 1 }} />);
         shallow(
           <MultiContext
             children={() => null}
@@ -56,8 +51,24 @@ describe('createMultiContext', () => {
     });
 
     it('should require a render prop', () => {
+      shallow(<MultiContext set={{ a: 1 }} />);
       expect(() => {
-        shallow(<MultiContext set={{ a: 1 }} />);
+        shallow(
+          <MultiContext
+            children={true}
+            get={[ 'a' ]}
+          />
+        );
+      }).toThrowError();
+      expect(() => {
+        shallow(
+          <MultiContext
+            children={1}
+            get={[ 'a' ]}
+          />
+        );
+      }).toThrowError();
+      expect(() => {
         shallow(
           <MultiContext
             children="children"
@@ -67,16 +78,59 @@ describe('createMultiContext', () => {
       }).toThrowError();
     });
 
-    it.skip('should execute the render prop', () => {
+    it('should execute the render prop', () => {
+      let value = null;
+      mount(
+        <MultiContext set={{ a: 1 }}>
+          <MultiContext get={[ 'a' ]}>
+            {a => {
+              value = a;
+              return null;
+            }}
+          </MultiContext>
+        </MultiContext>
+      );
+      expect(value).toBe(1);
+    });
+  });
+
+
+
+  // Defaults
+  describe('default', () => {
+    it('should accept default parameter', () => {
+      let value = null;
+      mount(
+        <MultiContext
+          children={d => {
+            value = d;
+            return null;
+          }}
+          get={[ 'd' ]}
+        />
+      );
+      expect(value).toBe(true);
     });
   });
 
 
 
   // Set + Get
-  describe('set + get', () => {
+   describe('set + get', () => {
 
-    it.skip('should not get what was just set', () => {
+    it('should not get what was just set', () => {
+      let value = null;
+      mount(
+        <MultiContext
+          children={d => {
+            value = d;
+            return null;
+          }}
+          get={[ 'd' ]}
+          set={{ d: false }}
+        />
+      );
+      expect(value).toBe(true);
     });
   });
 });

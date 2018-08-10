@@ -113,7 +113,13 @@ const Child3 = () =>
 ```
 
 ## Default Values
-You may pass an object of default values for the contexts via the `default` prop.
+You may pass an object of default values for the contexts as a parameter to `createMultiContext` or via the `default` prop.
+
+```JS
+const MyMultiContext = createMultiContext({ a: 0, b: 0 });
+```
+
+or
 
 ```JS
 <MyMultiContext
@@ -125,6 +131,8 @@ You may pass an object of default values for the contexts via the `default` prop
   </MyMultiContext>
 </MyMultiContext>
 ```
+
+You do not need to do both.
 
 ## MultiContext.with
 `MultiContextInstance.with(...multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.

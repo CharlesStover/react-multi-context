@@ -1,21 +1,25 @@
-# react-multi-context
+# React Multi-Context [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Simplify%20React's%20Context%20API%20by%20managing%20multiple%20contexts%20with%20a%20single%20component.&url=https://github.com/CharlesStover/react-multi-context&via=CharlesStover&hashtags=react,reactjs,javascript,webdev,webdeveloper,webdevelopment)
+
 Manage multiple contexts with a single React component.
 
-[![package](https://img.shields.io/github/package-json/v/CharlesStover/react-multi-context.svg)](https://travis-ci.com/CharlesStover/react-multi-context/)
+[![version](https://img.shields.io/npm/v/react-multi-context.svg)](https://www.npmjs.com/package/react-multi-context)
+[![minified size](https://img.shields.io/bundlephobia/min/react-multi-context.svg)](https://www.npmjs.com/package/react-multi-context)
+[![minzipped size](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)](https://www.npmjs.com/package/react-multi-context)
+[![downloads](https://img.shields.io/npm/dt/react-multi-context.svg)](https://www.npmjs.com/package/react-multi-context)
 [![build](https://api.travis-ci.com/CharlesStover/react-multi-context.svg)](https://travis-ci.com/CharlesStover/react-multi-context/)
-[![downloads](https://img.shields.io/npm/dt/react-multi-context.svg)](https://www.npmjs.com/package/react-object-prop)
-[![minified size](https://img.shields.io/bundlephobia/min/react-multi-context.svg)](https://www.npmjs.com/package/react-object-prop)
-[![minzipped size](https://img.shields.io/bundlephobia/minzip/react-multi-context.svg)](https://www.npmjs.com/package/react-object-prop)
 
 ## Install
+
 * `npm install react-multi-context --save` or
 * `yarn add react-multi-context`
 
 ## Test
+
 * `npm run test` or
 * `yarn test`
 
 ## Use
+
 ```JS
 import createMultiContext from 'react-multi-context';
 export const MyMultiContext = createMultiContext();
@@ -31,6 +35,7 @@ Use the `get` prop to get a context's value.
 Using this prop will execute the `children` render prop by passing the corresponding values of the context as the parameters.
 
 ## Example
+
 ```JS
 // Parent.js
 import createMultiContext from 'react-multi-context';
@@ -78,6 +83,7 @@ export default class Child extends React.Component {
 ```
 
 ## Example (Shorter)
+
 ```JS
 // Parent - writes A and B
 const Parent = () =>
@@ -113,6 +119,7 @@ const Child3 = () =>
 ```
 
 ## Default Values
+
 You may pass an object of default values for the contexts as a parameter to `createMultiContext` or via the `default` prop.
 
 ```JS
@@ -135,6 +142,7 @@ or
 You do not need to do both.
 
 ## MultiContext.with
+
 `MultiContextInstance.with(...multiContextKeys)(Component)` will bind the `multiContextKeys` of `MultiContextInstance` to the props of `Component`.
 
 ```JS

@@ -158,3 +158,9 @@ class MyComponent extends React.PureComponent {
 // Binds the MultiContext's `name` property to MyComponent's `name` prop.
 export default SomeMultiContext.with('name', 'age')(MyComponent);
 ```
+
+## Sponsor 💗
+
+If you are a fan of this project, you may
+[become a sponsor](https://github.com/sponsors/CharlesStover)
+via GitHub's Sponsors Program.
